@@ -1,2 +1,8 @@
 # Geckos-Team-10
-Add-project-description-here | Voyage-7 | https://chingu.io/
+A Punk Beer Application | Voyage-7 | https://chingu.io/
+
+Team Members
+-------------
+* regina
+* TechTinu
+* Cmtran7393
