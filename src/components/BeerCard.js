@@ -39,7 +39,7 @@ const BeerCard = (props) =>{
         <b>Best when paired with: </b>
          {beer.food_pairing.map((item,k)=>
         {return <div key={k}>{item}</div>})}
-        
+         
     </div>
             </div>
             </div></div>
@@ -53,6 +53,7 @@ const BeerCard = (props) =>{
                 </IconButton>
                 }
               actionPosition="left"
+              
               className={classes.titleBar}
             />
            
