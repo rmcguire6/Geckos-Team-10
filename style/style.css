@@ -1,0 +1,48 @@
+/**STYLES FOR BEER CARD**/
+.flip-box {
+    background-color: transparent;
+    width: 300px;
+    height: 330px;
+    border: 1px solid #f1f1f1;
+    perspective: 1000px;
+  }
+  
+  /* This container is needed to position the front and back side */
+  .flip-box-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+ .flip-box:hover .flip-box-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .flip-box-front, .flip-box-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+  
+  .flip-box-front {
+    background-color: #8fa5c9;
+    color: black;
+    padding-top: 50px;
+  }
+  
+  .flip-box-back {
+    background-color: dodgerblue;
+    color: white;
+    transform: rotateY(180deg);
+    font-size: 11.5px;
+    padding-top: 50px;
+    
+  }
+ 
+  
+  
+  /**END STYLES FOR BEER CARD**/
