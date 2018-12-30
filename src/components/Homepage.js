@@ -7,6 +7,7 @@ import { getRandomBeer, displayUniqueBeers } from '../utils/Helpers';
 class HomePage extends Component {
   constructor(props) {
     super(props);
+    this.displayRandomBeer = this.displayRandomBeer.bind(this);
     this.state = {
       randomBeer: {},
       beers: [],
