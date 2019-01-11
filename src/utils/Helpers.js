@@ -29,14 +29,10 @@ const createFilteredBeerList = (beers ,filterBy , filter) => {
   } else {
     beerFilter = ''
   }
-  if (filter.length > 0 && beerFilter !== '') {
+  if (beerFilter !== '') {
     let lowerValue = Number.parseInt(filter.slice(0,2), 10)
     let higherValue = Number.parseInt(filter.slice(3), 10)
-    //console.log('filter', filter, 'lowerValue', lowerValue, 'higherValue', higherValue)
-    //console.log('first beer filter value', beers[0][beerFilter])
     filteredBeers = beers.filter(beer => (lowerValue <= beer[beerFilter] && beer[beerFilter] < higherValue))
-  } else {
-    console.log('No filter chosen')
   }
   return filteredBeers;
 }

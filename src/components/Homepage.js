@@ -10,13 +10,17 @@ class HomePage extends Component {
     super(props);
     this.displayRandomBeer = this.displayRandomBeer.bind(this);
     this.handleAlcoholFilterChange = this.handleAlcoholFilterChange.bind(this);
+    this.handleIBUFilterChange = this.handleIBUFilterChange.bind(this);
+    //this.handleSelectFilter = this.handleSelectFilter.bind(this);
     this.state = {
       data: [],
       randomBeer: {},
       beers: [],
-      error: '',
       isLoading: true,
-      alcoholFilter: []
+      alcoholFilter: [],
+      ibuFilter: [],
+      filterBy: [],
+      filter: ''
     };
   }
 
@@ -41,22 +45,34 @@ class HomePage extends Component {
   handleAlcoholFilterChange = (alcoholFilter) => {
     if (alcoholFilter.length > 0) {
       this.setState(() => ({
-        alcoholFilter
+        alcoholFilter: alcoholFilter,
+        filter: 'abv',
+        filterBy: alcoholFilter
       }));
-      //console.log('alcoholFilter is ',alcoholFilter )
-    } else {
-      console.log('No filtered beers')
-    }
+    } 
   }
-
+  handleIBUFilterChange = (ibuFilter) => {
+    if (ibuFilter.length > 0) {
+      this.setState(() => ({
+        ibuFilter: ibuFilter,
+        filter: 'ibu',
+        filterBy: ibuFilter
+      }));
+    } 
+  }
+  
   render() {
-    let filteredBeerList = createFilteredBeerList(this.state.data,'abv', this.state.alcoholFilter)
+    let filteredBeerList = createFilteredBeerList(this.state.data, this.state.filter, this.state.filterBy)
     return (
       <div>
         <Hero random={this.state.randomBeer} />
-        <SearchFilters handleAlcoholFilterChange={this.handleAlcoholFilterChange}/>
+        <SearchFilters
+          //handleSelectFilter={this.handleSelectFilter}
+          handleAlcoholFilterChange={this.handleAlcoholFilterChange}
+          handleIBUFilterChange={this.handleIBUFilterChange}
+          />
         {filteredBeerList.length > 0 ? <h2>Filtered Beers</h2> : <h2>Beers</h2>}
-        {this.state.alcoholFilter.length > 0 ? <BeerList beers={filteredBeerList}/> : <BeerList beers={this.state.beers} />}
+        {filteredBeerList.length > 0 ? <BeerList beers={filteredBeerList}/> : <BeerList beers={this.state.beers} />}
       </div>
     );
   }
