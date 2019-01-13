@@ -30,8 +30,8 @@ const createFilteredBeerList = (beers ,filterBy , filter) => {
     beerFilter = ''
   }
   if (beerFilter !== '') {
-    let lowerValue = Number.parseInt(filter.slice(0,2), 10)
-    let higherValue = Number.parseInt(filter.slice(3), 10)
+    let lowerValue = Number.parseInt(filter.slice(0,3), 10)
+    let higherValue = Number.parseInt(filter.slice(4), 10)
     filteredBeers = beers.filter(beer => (lowerValue <= beer[beerFilter] && beer[beerFilter] < higherValue))
   }
   return filteredBeers;

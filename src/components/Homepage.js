@@ -5,13 +5,12 @@ import SearchFilters from './SearchFilters';
 import getBeers from '../utils/BeerAPI';
 import { getRandomBeer, displayUniqueBeers, createFilteredBeerList } from '../utils/Helpers';
 
-class HomePage extends Component {
+class Homepage extends Component {
   constructor(props) {
     super(props);
     this.displayRandomBeer = this.displayRandomBeer.bind(this);
     this.handleAlcoholFilterChange = this.handleAlcoholFilterChange.bind(this);
     this.handleIBUFilterChange = this.handleIBUFilterChange.bind(this);
-    //this.handleSelectFilter = this.handleSelectFilter.bind(this);
     this.state = {
       data: [],
       randomBeer: {},
@@ -67,7 +66,6 @@ class HomePage extends Component {
       <div>
         <Hero random={this.state.randomBeer} />
         <SearchFilters
-          //handleSelectFilter={this.handleSelectFilter}
           handleAlcoholFilterChange={this.handleAlcoholFilterChange}
           handleIBUFilterChange={this.handleIBUFilterChange}
           />
@@ -78,4 +76,4 @@ class HomePage extends Component {
   }
 }
 
-export default HomePage;
+export default Homepage;

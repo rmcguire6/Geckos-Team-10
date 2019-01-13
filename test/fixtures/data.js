@@ -1,4 +1,4 @@
-[
+export default [
     {
         "id": 21,
         "name": "Vice Bier",

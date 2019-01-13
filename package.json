@@ -1,13 +1,15 @@
 {
-  "name": "react-boilerplate",
+  "name": "beer-app",
   "version": "1.0.0",
-  "description": "boilerplate",
+  "description": "beer-app",
   "main": "index.js",
   "repository": "",
   "scripts": {
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "test-jest": "jest",
+    "test-jest:watch": "npm run jest -- --watch"
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +19,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.1.18",
     "babel-preset-react": "^6.1.18",
+    "jest": "^23.6.0",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0"
   },
