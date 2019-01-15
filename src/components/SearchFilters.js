@@ -18,8 +18,9 @@ class SearchFilters extends Component {
    
     render() {
         return (
-    <div>
-      <select onChange={this.handleAlcoholFilterChange}>
+    <div className="filter-group">
+    <div className="filter">
+      <select className="filter" onChange={this.handleAlcoholFilterChange}>
           <option value="">No Filter Selected</option>
           <option value="  0,1">Alcohol Less Than 1%</option>
           <option value="  1,4">Alcohol 1% to  less than 4%</option>
@@ -27,7 +28,9 @@ class SearchFilters extends Component {
           <option value="  7,10">Alcohol 7% to less than 10%</option>
           <option value=" 10,90">Alcohol 10% or greater</option>
       </select>
-      <select onChange={this.handleIBUFilterChange}>
+      </div>
+      <div className="filter">
+      <select className="filter" onChange={this.handleIBUFilterChange}>
           <option value="">No Filter Selected</option>
           <option value="  0,24">IBU Less Than 25</option>
           <option value=" 25,49">IBU 25 to 49</option>
@@ -35,6 +38,7 @@ class SearchFilters extends Component {
           <option value=" 75,99">IBU 75 to 99</option>
           <option value="100,120">IBU 100 or more</option>
       </select>
+    </div>
     </div>
         )
     }
