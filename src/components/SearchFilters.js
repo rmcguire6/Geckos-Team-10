@@ -39,6 +39,16 @@ class SearchFilters extends Component {
           <option value="100,120">IBU 100 or more</option>
       </select>
     </div>
+    <div className="filter">
+      <select onChange={this.handleTypeFilterChange}>
+          <option value="">No Filter Selected</option>
+          <option value="ale">Ale</option>
+          <option value="IPA">IPA's</option>
+          <option value="lager">Lager</option>
+          <option value="stout">Stout</option>
+          <option value="wheat">Wheat Beer</option>
+      </select>
+    </div>
     </div>
         )
     }

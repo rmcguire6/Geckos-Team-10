@@ -3,7 +3,7 @@ import BeerList from './BeerList';
 import Hero from './Hero';
 import SearchFilters from './SearchFilters';
 import getBeers from '../utils/BeerAPI';
-import { getRandomBeer, displayUniqueBeers, createFilteredBeerList } from '../utils/Helpers';
+import { getRandomBeer, displayUniqueBeers, createFilteredBeerList, createNamedBeerList} from '../utils/Helpers';
 
 class Homepage extends Component {
   constructor(props) {
@@ -59,9 +59,19 @@ class Homepage extends Component {
       }));
     } 
   }
-  
+  handleTypeFilterChange = (typeFilter) => {
+    if (typeFilter.length > 0) {
+      this.setState(() => ({
+        filter: 'type',
+        typeFilter: typeFilter
+      }));
+    }
+    console.log('type_passed', typeFilter,'type set',this.state.typeFilter)
+  }
   render() {
-    let filteredBeerList = createFilteredBeerList(this.state.data, this.state.filter, this.state.filterBy)
+    let filteredBeerList = []
+    {this.state.filter !== 'type' ? filteredBeerList= createFilteredBeerList(this.state.data, this.state.filter, this.state.filterBy) :
+     filteredBeerList = createNamedBeerList(this.state.data, this.state.filter)} 
     return (
       <div>
         <Hero random={this.state.randomBeer} />

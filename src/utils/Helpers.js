@@ -36,4 +36,14 @@ const createFilteredBeerList = (beers ,filterBy , filter) => {
   }
   return filteredBeers;
 }
-export { getRandomBeer, displayUniqueBeers, createFilteredBeerList };
+const createNamedBeerList = (beers , filter) => {
+  let beerFilter;
+  let filteredBeers = [];
+  
+  if (beerFilter !== '') {
+    filteredBeers = beers.filter(beer => beer.tagline.toLowerCase().includes(filter.toLowerCase()) 
+    || beer.name.toLowerCase().includes(filter.toLowerCase()))
+  }
+  return filteredBeers;
+}
+export { getRandomBeer, displayUniqueBeers, createFilteredBeerList, createNamedBeerList };
