@@ -36,14 +36,24 @@ const createFilteredBeerList = (beers ,filterBy , filter) => {
   }
   return filteredBeers;
 }
-const createNamedBeerList = (beers , filter) => {
-  let beerFilter;
+const createNamedBeerList = (beers , typeFilter) => {
   let filteredBeers = [];
-  
-  if (beerFilter !== '') {
-    filteredBeers = beers.filter(beer => beer.tagline.toLowerCase().includes(filter.toLowerCase()) 
-    || beer.name.toLowerCase().includes(filter.toLowerCase()))
-  }
+  let ipaFilter = 'india pale ale'
+  if (typeFilter !== '') {
+    if ((typeFilter !== 'ipa') && (typeFilter !== 'ale')) {
+      filteredBeers = beers.filter(beer => beer.tagline.toLowerCase().includes(typeFilter)
+        || beer.name.toLowerCase().includes(typeFilter))
+    } else if (typeFilter === 'ipa') {   
+      filteredBeers = beers.filter(beer =>
+        beer.tagline.toLowerCase().includes(ipaFilter || typeFilter) 
+        || beer.name.toLowerCase().includes(ipaFilter || typeFilter))
+    } else if (typeFilter === 'ale') {
+        filteredBeers = beers.filter(beer => beer.tagline.toLowerCase().includes(typeFilter) 
+          || beer.name.toLowerCase().includes(typeFilter))
+        filteredBeers = filteredBeers.filter(beer => !(beer.tagline.toLowerCase().includes(ipaFilter) 
+          || beer.name.toLowerCase().includes(ipaFilter)))
+    }
+  } 
   return filteredBeers;
 }
 export { getRandomBeer, displayUniqueBeers, createFilteredBeerList, createNamedBeerList };

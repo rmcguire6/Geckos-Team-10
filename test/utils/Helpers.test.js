@@ -1,4 +1,4 @@
-import { createFilteredBeerList } from '../../src/utils/Helpers';
+import { createFilteredBeerList, createNamedBeerList } from '../../src/utils/Helpers';
 import  beers from '../fixtures/data';
 
 test('should filter by abv value less than 1', () => {
@@ -41,4 +41,25 @@ test('should filter by IBU value 75 to 99', () => {
 test('should filter by IBU value 100 to 120', () => {
     const result = createFilteredBeerList(beers,'ibu', '100,120');
     expect(result).toEqual([beers[1]]);
+});
+test('should filter by beer type ale ', () => {
+    const result = createNamedBeerList(beers, 'ale');
+    expect(result).toEqual([beers[8], beers[10]]);
+});
+test('should filter by beer type ipa ', () => {
+    console.log(beers[2].tagline.toLowerCase())
+    const result = createNamedBeerList(beers, 'ipa');
+    expect(result).toEqual([beers[2],beers[7], beers[9]]);
+});
+test('should filter by beer type lager ', () => {
+    const result = createNamedBeerList(beers, 'lager');
+    expect(result).toEqual([]);
+});
+test('should filter by beer type stout ', () => {
+    const result = createNamedBeerList(beers, 'stout');
+    expect(result).toEqual([beers[6]]);
+});
+test('should filter by beer type wheat ', () => {
+    const result = createNamedBeerList(beers, 'wheat');
+    expect(result).toEqual([beers[0], beers[4]]);
 });

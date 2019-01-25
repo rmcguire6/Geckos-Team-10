@@ -15,7 +15,11 @@ class SearchFilters extends Component {
         let ibuFilter = e.target.value;
         this.props.handleIBUFilterChange(ibuFilter);
     } 
-   
+    handleTypeFilterChange = (e) => {
+        e.preventDefault();
+        let typeFilter = e.target.value;
+        this.props.handleTypeFilterChange(typeFilter);
+    } 
     render() {
         return (
     <div className="filter-group">
@@ -42,11 +46,11 @@ class SearchFilters extends Component {
     <div className="filter">
       <select onChange={this.handleTypeFilterChange}>
           <option value="">No Filter Selected</option>
-          <option value="ale">Ale</option>
+          <option value="ale">Ales but Not India Pale Ales(IPA's)</option>
           <option value="IPA">IPA's</option>
-          <option value="lager">Lager</option>
-          <option value="stout">Stout</option>
-          <option value="wheat">Wheat Beer</option>
+          <option value="lager">Lagers</option>
+          <option value="stout">Stouts</option>
+          <option value="wheat">Wheat Beers</option>
       </select>
     </div>
     </div>

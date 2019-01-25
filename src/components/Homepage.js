@@ -11,6 +11,7 @@ class Homepage extends Component {
     this.displayRandomBeer = this.displayRandomBeer.bind(this);
     this.handleAlcoholFilterChange = this.handleAlcoholFilterChange.bind(this);
     this.handleIBUFilterChange = this.handleIBUFilterChange.bind(this);
+    this.handleTypeFilterChange = this.handleTypeFilterChange.bind(this);
     this.state = {
       data: [],
       randomBeer: {},
@@ -18,6 +19,7 @@ class Homepage extends Component {
       isLoading: true,
       alcoholFilter: [],
       ibuFilter: [],
+      typeFilter: '',
       filterBy: [],
       filter: ''
     };
@@ -66,7 +68,6 @@ class Homepage extends Component {
         typeFilter: typeFilter
       }));
     }
-    console.log('type_passed', typeFilter,'type set',this.state.typeFilter)
   }
   render() {
     let filteredBeerList = []
@@ -78,6 +79,7 @@ class Homepage extends Component {
         <SearchFilters
           handleAlcoholFilterChange={this.handleAlcoholFilterChange}
           handleIBUFilterChange={this.handleIBUFilterChange}
+          handleTypeFilterChange={this.handleTypeFilterChange}
           />
         {filteredBeerList.length > 0 ? <h2>Filtered Beers</h2> : <h2>Beers</h2>}
         {filteredBeerList.length > 0 ? <BeerList beers={filteredBeerList}/> : <BeerList beers={this.state.beers} />}
