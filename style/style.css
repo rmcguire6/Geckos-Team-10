@@ -79,14 +79,27 @@
     padding-top: 50px;
     
   } 
-  /**END STYLES FOR BEER CARD**/
-  
-  /**STYLES FOR SEARCH FILTERS **/
-  .filter-group {
-    padding:  25px;
-  }
-  .filter {
-   display: inline-flex;
-   margin: 1em 2em 0 2em;
-  }
-  /**END STYLES FOR SEARCH FILTERS**/
+  /**END STYLES FOR BEER CARD**/ 
+ 
+ /**STYLES FOR SEARCH FILTERS **/
+ .filter-group {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding:  1rem;
+}
+.filter {
+  margin:  .5rem;
+  padding: 1rem;
+}
+/**END STYLES FOR SEARCH FILTERS**/
+
+/**STYLES FOR SEARCH **/
+.search {
+background:#3366cc;
+display: flex;
+height: 15rem;
+justify-content: center;
+}
+/**END STYLES FOR SEARCH**/

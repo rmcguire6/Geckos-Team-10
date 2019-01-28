@@ -76,11 +76,13 @@ class Homepage extends Component {
     return (
       <div>
         <Hero random={this.state.randomBeer} />
+        <div className="search">
         <SearchFilters
           handleAlcoholFilterChange={this.handleAlcoholFilterChange}
           handleIBUFilterChange={this.handleIBUFilterChange}
           handleTypeFilterChange={this.handleTypeFilterChange}
           />
+        </div>
         {filteredBeerList.length > 0 ? <h2>Filtered Beers</h2> : <h2>Beers</h2>}
         {filteredBeerList.length > 0 ? <BeerList beers={filteredBeerList}/> : <BeerList beers={this.state.beers} />}
       </div>
