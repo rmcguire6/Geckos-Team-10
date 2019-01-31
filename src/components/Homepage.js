@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import BeerList from './BeerList';
 import Hero from './Hero';
+import SearchBar from './SearchBar';
 import SearchFilters from './SearchFilters';
 import getBeers from '../utils/BeerAPI';
-import { getRandomBeer, displayUniqueBeers, createFilteredBeerList, createNamedBeerList} from '../utils/Helpers';
+import { getRandomBeer, displayUniqueBeers, filterByValue} from '../utils/Helpers';
 
 class Homepage extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class Homepage extends Component {
     this.displayRandomBeer = this.displayRandomBeer.bind(this);
     this.handleAlcoholFilterChange = this.handleAlcoholFilterChange.bind(this);
     this.handleIBUFilterChange = this.handleIBUFilterChange.bind(this);
+    this.handleSearchChange = this.handleSearchChange.bind(this);
     this.handleTypeFilterChange = this.handleTypeFilterChange.bind(this);
     this.state = {
       data: [],
@@ -19,6 +21,7 @@ class Homepage extends Component {
       isLoading: true,
       alcoholFilter: [],
       ibuFilter: [],
+      searchText: '',
       typeFilter: '',
       filterBy: [],
       filter: ''
@@ -61,22 +64,35 @@ class Homepage extends Component {
       }));
     } 
   }
+  handleSearchChange = (searchText) => {
+    if (searchText.length > 0) {
+      this.setState(() => ({
+        filter: 'text',
+        searchText: searchText
+      }));
+    }
+  }
   handleTypeFilterChange = (typeFilter) => {
     if (typeFilter.length > 0) {
       this.setState(() => ({
         filter: 'type',
         typeFilter: typeFilter
       }));
+      console.log('props filter filterBy', this.state.filter,this.state.filterBy  )
     }
   }
   render() {
     let filteredBeerList = []
-    {this.state.filter !== 'type' ? filteredBeerList= createFilteredBeerList(this.state.data, this.state.filter, this.state.filterBy) :
-     filteredBeerList = createNamedBeerList(this.state.data, this.state.filter)} 
+    {this.state.filter === 'text'? 
+     filteredBeerList = this.state.data.filter(beer => beer.name.toLowerCase().includes(this.state.searchText.toLowerCase())) :
+     filteredBeerList = filterByValue(this.state.data, this.state.filter, this.state.filterBy) }
     return (
       <div>
         <Hero random={this.state.randomBeer} />
         <div className="search">
+        <SearchBar
+         handleSearchChange={this.handleSearchChange}
+        />
         <SearchFilters
           handleAlcoholFilterChange={this.handleAlcoholFilterChange}
           handleIBUFilterChange={this.handleIBUFilterChange}
