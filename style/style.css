@@ -19,6 +19,8 @@
 .colored {
   color: #737373;
 }
+
+  /**STYLES FOR HERO **/
  .hero-group {
   align-items: flex-start;
   display: flex;
@@ -32,6 +34,14 @@
  
 .hero-text {
   font-size: 5rem;
+  text-align: center;
+}
+ .hero-image {
+  transform: rotate (10deg);
+}
+.hero-text {
+  color: darkgray;
+  font-size: 75px;
 }
  /**END STYLES FOR HERO**/
 

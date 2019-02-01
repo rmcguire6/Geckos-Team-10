@@ -18,7 +18,6 @@ class SearchFilters extends Component {
     handleTypeFilterChange = (e) => {
         e.preventDefault();
         let typeFilter = e.target.value;
-        console.log('searchFilters fired',typeFilter)
         this.props.handleTypeFilterChange(typeFilter);
     } 
     render() {
