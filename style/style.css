@@ -19,7 +19,39 @@
 .colored {
   color: #737373;
 }
+/**Colors 
+$dark-grey: darkgray;
+$grey: #666;
+$blue:dodgerblue;
+$blue-gray: #8fa5c9;
+$off-white: #f1f1f1;
+END COLORS **/
+ 
+ 
+ /**STYLES FOR HEADER **/
+ .logo {
+   color: darkgray;
+ }
+ .main-nav {
+  display: flex;
+  grid-area: nav;
+  align-content: space-between;
+  align-items: center;
+}
+.main-nav-right {
+  display: flex;
+  border: thin black solid;
+  
+}
+a {
+  color: darkgray;
+  flex-direction: row;
+  padding: .5rem 1rem;
+  text-align: center;
+  text-decoration: none;
 
+}
+ /**END STYLES FOR HEADER**/
   /**STYLES FOR HERO **/
  .hero-group {
   align-items: flex-start;
@@ -113,3 +145,66 @@ height: 15rem;
 justify-content: center;
 }
 /**END STYLES FOR SEARCH**/
+  /**STYLES FOR FOOTER **/
+  .main-footer {
+    background-color:#8fa5c9;
+    color: #f1f1f1;
+    grid-area: footer;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+.main-footer p {
+  margin: 0;
+}
+ /**END STYLES FOR FOOTER**/
+
+/** GRID STYLES**/
+.content {
+  grid-area: content;
+}
+
+.ad {
+  grid-area: ad;
+}
+
+.wrapper {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-areas: 
+    "nav"
+    "content"
+    "ad"
+    "footer";
+}
+@media (min-width: 500px) {
+  .wrapper {
+    grid-template-columns: 3fr;
+    grid-template-areas: 
+      "nav     nav"
+      "content content"
+      "ad      ad"
+      "footer  footer";
+  }
+  nav {
+    justify-content: space-between;
+  }
+  nav a {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+}
+@media (min-width: 700px) {
+  .wrapper {
+    grid-template-columns: 6fr;
+    grid-template-areas: 
+      "nav   nav  nav"
+      "content  content content"
+      "footer footer  footer"
+   }
+   nav a {
+     flex-direction: row;
+   }
+}
+/** END OF GRID STYLES **/

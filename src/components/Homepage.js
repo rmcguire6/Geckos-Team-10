@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import BeerList from './BeerList';
+import Header from './Header';
 import Hero from './Hero';
 import SearchBar from './SearchBar';
+import Footer from './Footer';
 import SearchFilters from './SearchFilters';
+
 import getBeers from '../utils/BeerAPI';
 import { getRandomBeer, displayUniqueBeers, filterByValue} from '../utils/Helpers';
 
@@ -87,7 +90,9 @@ class Homepage extends Component {
      filteredBeerList = this.state.data.filter(beer => beer.name.toLowerCase().includes(this.state.searchText.toLowerCase())) :
      filteredBeerList = filterByValue(this.state.data, this.state.filter, this.state.filterBy) }
     return (
-      <div>
+      <div className="wrapper">
+        <Header />
+        <div className="content">
         <Hero random={this.state.randomBeer} />
         <div className="search">
         <SearchBar
@@ -101,6 +106,8 @@ class Homepage extends Component {
         </div>
         {filteredBeerList.length > 0 ? <h2>Filtered Beers</h2> : <h2>Beers</h2>}
         {filteredBeerList.length > 0 ? <BeerList beers={filteredBeerList}/> : <BeerList beers={this.state.beers} />}
+        </div>
+        <Footer />
       </div>
     );
   }
