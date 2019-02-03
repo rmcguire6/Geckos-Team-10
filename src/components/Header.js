@@ -3,12 +3,12 @@ const Header = () => {
     return (
         <div>
         <nav className="main-nav">
-            <h4 className="logo">Hoppiness</h4>
-            <div className="main-nav-right">
-            <a href="#">About</a>
-            <a href="#">Shop</a>
-            <a href="#">Login</a>
-            </div>
+          <h3 className="logo">Hoppiness</h3>
+          <div className="main-nav-right">
+            <a href="#">about</a>
+            <a href="#">shop</a>
+            <a href="#">login</a>
+          </div>
         </nav>
        
         </div>

@@ -16,9 +16,9 @@ class SearchBar extends Component {
     } 
     render() {
         return (
-    <div className="filter-group">
-    <form onSubmit={this.handleSearchChange}>
-          <input className="filter" type="text" name="searchText" />
+    <div >
+    <form className="filter-group" onSubmit={this.handleSearchChange}>
+          <input className="filter-search" type="text" name="searchText" placeholder="Search by name" />
           <button className="button">Search</button>
         </form>
     </div>

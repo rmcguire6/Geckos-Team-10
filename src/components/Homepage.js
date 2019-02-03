@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import BeerList from './BeerList';
-import Header from './Header';
 import Hero from './Hero';
-import SearchBar from './SearchBar';
 import Footer from './Footer';
+import Header from './Header';
+import SearchBar from './SearchBar';
 import SearchFilters from './SearchFilters';
-
 import getBeers from '../utils/BeerAPI';
 import { getRandomBeer, displayUniqueBeers, filterByValue} from '../utils/Helpers';
 
@@ -81,7 +80,6 @@ class Homepage extends Component {
         filter: 'type',
         typeFilter: typeFilter
       }));
-      console.log('props filter filterBy', this.state.filter,this.state.filterBy  )
     }
   }
   render() {
@@ -96,7 +94,7 @@ class Homepage extends Component {
         <Hero random={this.state.randomBeer} />
         <div className="search">
         <SearchBar
-         handleSearchChange={this.handleSearchChange}
+          handleSearchChange={this.handleSearchChange}
         />
         <SearchFilters
           handleAlcoholFilterChange={this.handleAlcoholFilterChange}

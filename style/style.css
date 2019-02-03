@@ -1,63 +1,95 @@
- /**STYLES FOR HERO **/
- .big {
-   font-size: 2rem;
- }
- .bold{
-   font-weight: bold;
- }
- .circle {
-  background:	#ffbf00;
-  color: white;
-  border-radius: 6rem;
-  height: 12rem;
+ /**STYLES FOR BEER CARD**/
+.flip-box {
+  background-color: transparent;
+  width: 300px;
+  height: 330px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px;
+}
+
+/* This container is needed to position the front and back side */
+.flip-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
   text-align: center;
-  width: 12rem;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
 }
-.circle h3 {
-  text-decoration-line: underline
+
+.flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg);
 }
-.colored {
-  color: #737373;
+
+.flip-box-front, .flip-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
 }
-/**Colors 
-$dark-grey: darkgray;
-$grey: #666;
-$blue:dodgerblue;
-$blue-gray: #8fa5c9;
-$off-white: #f1f1f1;
-END COLORS **/
- 
+
+.flip-box-front {
+  background-color: #8fa5c9;
+  color: black;
+  padding-top: 50px;
+}
+
+.flip-box-back {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
+  font-size: 11.5px;
+  padding-top: 50px;
+  
+} 
+  /**END STYLES FOR BEER CARD**/ 
  
  /**STYLES FOR HEADER **/
+ 
  .logo {
-   color: darkgray;
+   color:	#ffbf00;
  }
- .main-nav {
-  display: flex;
-  grid-area: nav;
-  align-content: space-between;
-  align-items: center;
-}
-.main-nav-right {
-  display: flex;
-  border: thin black solid;
-  
-}
-a {
-  color: darkgray;
-  flex-direction: row;
-  padding: .5rem 1rem;
-  text-align: center;
-  text-decoration: none;
-
-}
+ 
  /**END STYLES FOR HEADER**/
   /**STYLES FOR HERO **/
+  .big {
+    font-size: 2rem;
+  }
+  .bold{
+    font-weight: bold;
+  }
+  .circle {
+   background:	#ffa200;
+   color: white;
+   border-radius: 6rem;
+   height: 12rem;
+   padding: .3rem;
+   text-align: center;
+   width: 12rem;
+  }
+  .circle h2 {
+    font-family: Brush Script MT, Brush Script Std, cursive;
+    font-stretch: semi-expanded;
+    text-decoration-line: underline
+  }
+  .colored {
+   color: #737373;
+  }
+  .hero {
+    border-bottom-right-radius: 15%;
+    margin-bottom: 5rem;
+  }
+  .hero-ad {
+    line-height: 2;
+    padding: 0 2rem;
+  }
  .hero-group {
   align-items: flex-start;
   display: flex;
+  font-family: NotoSans, 'Lucida Sans', sans-serif;
   flex-direction: row;
   justify-content: center;
+  margin: 5rem;
   padding: 3rem;
 }
 .hero-image {
@@ -65,86 +97,12 @@ a {
 }
  
 .hero-text {
+  color: darkgray;
   font-size: 5rem;
   text-align: center;
 }
- .hero-image {
-  transform: rotate (10deg);
-}
-.hero-text {
-  color: darkgray;
-  font-size: 75px;
-}
+
  /**END STYLES FOR HERO**/
-
-/**STYLES FOR BEER CARD**/
-.flip-box {
-    background-color: transparent;
-    width: 300px;
-    height: 330px;
-    border: 1px solid #f1f1f1;
-    perspective: 1000px;
-  }
-  
-  /* This container is needed to position the front and back side */
-  .flip-box-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-  }
-  
- .flip-box:hover .flip-box-inner {
-    transform: rotateY(180deg);
-  }
-  
-  .flip-box-front, .flip-box-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-  }
-  
-  .flip-box-front {
-    background-color: #8fa5c9;
-    color: black;
-    padding-top: 50px;
-  }
-  
-  .flip-box-back {
-    background-color: dodgerblue;
-    color: white;
-    transform: rotateY(180deg);
-    font-size: 11.5px;
-    padding-top: 50px;
-    
-  } 
-  /**END STYLES FOR BEER CARD**/ 
- 
- /**STYLES FOR SEARCH FILTERS **/
- .filter-group {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  padding:  1rem;
-}
-.filter {
-  margin:  .5rem;
-  padding: 1rem;
-}
-/**END STYLES FOR SEARCH FILTERS**/
-
-/**STYLES FOR SEARCH **/
-.search {
-background:#3366cc;
-display: flex;
-height: 15rem;
-justify-content: center;
-}
-/**END STYLES FOR SEARCH**/
   /**STYLES FOR FOOTER **/
   .main-footer {
     background-color:#8fa5c9;
@@ -155,7 +113,7 @@ justify-content: center;
     text-align: left;
   }
 .main-footer p {
-  margin: 0;
+  margin: 0 10%;
 }
  /**END STYLES FOR FOOTER**/
 
@@ -174,7 +132,6 @@ justify-content: center;
   grid-template-areas: 
     "nav"
     "content"
-    "ad"
     "footer";
 }
 @media (min-width: 500px) {
@@ -183,7 +140,6 @@ justify-content: center;
     grid-template-areas: 
       "nav     nav"
       "content content"
-      "ad      ad"
       "footer  footer";
   }
   nav {
@@ -208,3 +164,59 @@ justify-content: center;
    }
 }
 /** END OF GRID STYLES **/
+/** NAVIGATION STYLES **/
+.main-nav {
+  display: flex;
+  grid-area: nav;
+  align-content: space-between;
+  align-items: center;
+}
+.main-nav-right {
+  display: flex;
+}
+a {
+  color: darkgray;
+  flex-direction: row;
+  padding: .5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+
+}
+/** END OF NAVIGATION STYLES **/
+ /**STYLES FOR SEARCH FILTERS **/
+ .button {
+  padding: 1rem;
+}
+.filter-search {
+  margin:  1.2rem;
+  padding: 1rem;
+  width: 40%;
+}
+.filter-group {
+ color: darkgray;
+ align-items: center;
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+ padding:  1rem;
+}
+.filter {
+ margin:  .6rem;
+ padding: 1rem;
+ width: 15%;
+}
+/**END STYLES FOR SEARCH FILTERS**/
+
+/**STYLES FOR SEARCH **/
+.search {
+background:#8fa5c9;
+border-top-left-radius: 6rem;
+display: flex;
+flex-direction: column;
+height: 15rem;
+justify-content: center;
+position: relative;
+bottom: 5rem;
+
+}
+/**END STYLES FOR SEARCH**/

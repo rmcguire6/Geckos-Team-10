@@ -15,6 +15,7 @@ class SearchFilters extends Component {
         let ibuFilter = e.target.value;
         this.props.handleIBUFilterChange(ibuFilter);
     } 
+    
     handleTypeFilterChange = (e) => {
         e.preventDefault();
         let typeFilter = e.target.value;
@@ -22,6 +23,7 @@ class SearchFilters extends Component {
     } 
     render() {
         return (
+
     <div className="filter-group">
       <select className="filter" onChange={this.handleAlcoholFilterChange}>
           <option value="">Alcohol Content</option>
