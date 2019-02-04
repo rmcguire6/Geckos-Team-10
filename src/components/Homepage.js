@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import BeerList from './BeerList';
+import Contact from './Contact';
 import Hero from './Hero';
 import Footer from './Footer';
 import Header from './Header';
@@ -104,6 +105,9 @@ class Homepage extends Component {
         </div>
         {filteredBeerList.length > 0 ? <h2>Filtered Beers</h2> : <h2>Beers</h2>}
         {filteredBeerList.length > 0 ? <BeerList beers={filteredBeerList}/> : <BeerList beers={this.state.beers} />}
+        <div className ="contact">
+          <Contact />
+        </div>
         </div>
         <Footer />
       </div>
