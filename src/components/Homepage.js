@@ -103,8 +103,9 @@ class Homepage extends Component {
           handleTypeFilterChange={this.handleTypeFilterChange}
           />
         </div>
-        {filteredBeerList.length > 0 ? <h2>Filtered Beers</h2> : <h2>Beers</h2>}
+        <div className="beer-display">
         {filteredBeerList.length > 0 ? <BeerList beers={filteredBeerList}/> : <BeerList beers={this.state.beers} />}
+        </div>
         <div className ="contact">
           <Contact />
         </div>

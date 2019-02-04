@@ -28,7 +28,7 @@ const BeerCard = (props) =>{
           <div className="flip-box">
         <div className="flip-box-inner">
         <div className="flip-box-front">
-            <img  src={imageURL} alt={beer.name} height='280' width='110' />
+            <img className="hero-image" src={imageURL} alt={beer.name} height='280' width='110' />
             </div>
             <div className="flip-box-back">
             <b>Description:</b>

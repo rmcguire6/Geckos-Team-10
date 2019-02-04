@@ -43,7 +43,7 @@
 }
 
 .flip-box-front {
-  background-color: #8fa5c9;
+  background-color: #f1f1f1;
   color: black;
   padding-top: 50px;
 }
@@ -57,7 +57,11 @@
   
 } 
   /**END STYLES FOR BEER CARD**/ 
-
+   /**STYLES FOR BEER DISPLAY**/
+   .beer-display {
+     padding: 2rem;
+   }
+/**END STYLES FOR BEER DISPLAY**/ 
   /** STYLES FOR CONTACT **/
   .contact {
     background:#2f5cb6;
