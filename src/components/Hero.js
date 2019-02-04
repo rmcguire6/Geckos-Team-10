@@ -11,20 +11,18 @@ const Hero = ({random}) =>{
                 </div>               
                 <h1 className="colored hero-text">NESS</h1>
             </div>
-            <div className="hero-group">
-                <div className="hero-ad">NO PRESERVATIVES<br/>
+            <div className="hero-ad">
+                <div className="hero-text-left">NO PRESERVATIVES<br/>
                    NO CHEMICALS<br/>
                    NO CHEAP SUBSTITUTES<br/>
-                   JUST <span className="bold">BARLEY, HOPS, YEAST, WATER</span><br/>
-                   and <span className="colored big">MIND-BLOWING FLAVOR</span>
+                   JUST <span className="bold">BARLEY, HOPS, YEAST, WATER</span> and <br/>
+                   <span className="colored big">MIND-BLOWING FLAVOR</span>
                 </div>
-                
                 <div className="circle">
                    <h2>Featured Beer</h2>
                    <h3>Get to Know</h3>
                    <p>{random.name}</p>
                 </div>  
-                
             </div>           
         </div>
     )

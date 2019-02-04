@@ -1,10 +1,10 @@
 import React from 'react';
 const Header = () => {
     return (
-        <div>
-        <nav className="main-nav">
+        <div className="header">
+        <nav className="nav">
           <h3 className="logo">Hoppiness</h3>
-          <div className="main-nav-right">
+          <div className="nav-right">
             <a href="#">about</a>
             <a href="#">shop</a>
             <a href="#">login</a>
