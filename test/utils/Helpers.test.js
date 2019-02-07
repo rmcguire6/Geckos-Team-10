@@ -43,22 +43,22 @@ test('should filter by IBU value 100 to 120', () => {
     expect(result).toEqual([beers[1]]);
 });
 test('should filter by beer type ale ', () => {
-    const result = filterByValue(beers, 'ale','');
+    const result = filterByValue(beers, 'type','ale');
     expect(result).toEqual([beers[8], beers[10]]);
 });
 test('should filter by beer type ipa ', () => {
-    const result = filterByValue(beers, 'ipa','');
+    const result = filterByValue(beers, 'type','ipa');
     expect(result).toEqual([beers[7], beers[9]]);
 });
 test('should filter by beer type lager ', () => {
-    const result = filterByValue(beers, 'lager','');
+    const result = filterByValue(beers, 'type','lager');
     expect(result).toEqual([]);
 });
 test('should filter by beer type stout ', () => {
-    const result = filterByValue(beers, 'stout','');
+    const result = filterByValue(beers, 'type','stout');
     expect(result).toEqual([beers[6]]);
 });
 test('should filter by beer type wheat ', () => {
-    const result = filterByValue(beers, 'wheat','');
+    const result = filterByValue(beers, 'type','wheat');
     expect(result).toEqual([beers[0], beers[4]]);
 });

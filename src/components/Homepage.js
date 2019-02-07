@@ -79,7 +79,8 @@ class Homepage extends Component {
     if (typeFilter.length > 0) {
       this.setState(() => ({
         filter: 'type',
-        typeFilter: typeFilter
+        typeFilter: typeFilter,
+        filterBy: typeFilter
       }));
     }
   }

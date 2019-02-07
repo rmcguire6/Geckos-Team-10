@@ -26,16 +26,19 @@ const filterByValue = (beers ,filterType , filter) => {
     beerFilter = 'abv';
   } else if (filterType === 'ibu') {
     beerFilter = 'ibu'
+  } else  if (filterType === 'type'){
+    beerFilter = 'type';
   } else {
-    beerFilter = '';
-  }
-  if (beerFilter !== '') {
+    beerFilter = ''
+  } 
+  
+  if (beerFilter === 'abv' || beerFilter ==='ibu')  {
     let lowerValue = Number.parseInt(filter.slice(0,3), 10)
     let higherValue = Number.parseInt(filter.slice(4), 10)
     filteredBeers = beers.filter(beer => (lowerValue <= beer[beerFilter] && beer[beerFilter] < higherValue))
   } else {
-    if (filterType === 'text')
-    filteredBeers = filterByType(beers, filterType)
+    if (beerFilter === 'type')
+    filteredBeers = filterByType(beers, filter)
   }
   return filteredBeers;
 }
